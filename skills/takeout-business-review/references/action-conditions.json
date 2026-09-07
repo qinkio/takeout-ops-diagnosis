@@ -1,0 +1,14 @@
+[
+  {"candidate_action_id":"ACT-DQ-01","applicable_when":"关键指标为0且含义不清","not_applicable_when":"已明确为真实0或不适用","dependencies":"商户或平台数据负责人","rule_evidence_sufficient":true},
+  {"candidate_action_id":"ACT-DQ-02","applicable_when":"数据状态为部分缺失或未提供","not_applicable_when":"缺失无法补回且已说明原因","dependencies":"平台数据导出","rule_evidence_sufficient":true},
+  {"candidate_action_id":"ACT-DQ-03","applicable_when":"周期不一致或平台覆盖不完整","not_applicable_when":"业务明确要求不同周期分析且已完成口径说明","dependencies":"主管确认口径","rule_evidence_sufficient":true},
+  {"candidate_action_id":"ACT-PERF-01","applicable_when":"连续三个同长度有效周期逐期下滑且命中配置阈值","not_applicable_when":"周期不等长、数据状态异常或缺少三个有效周期","dependencies":"规则命中记录与数据校验结果","rule_evidence_sufficient":true},
+  {"candidate_action_id":"ACT-FLOW-02","applicable_when":"曝光持续下降","not_applicable_when":"周期或数据口径不一致","dependencies":"平台流量数据","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-ENTRY-01","applicable_when":"曝光稳定或上涨但进店转化下降","not_applicable_when":"图片近期已更新且人工复核无异常","dependencies":"运营提供问题清单","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-ORDER-01","applicable_when":"进店稳定但下单转化下降","not_applicable_when":"菜单近期已核查且人工复核无变更","dependencies":"商品数据","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-NEW-01","applicable_when":"新客下降且老客相对稳定","not_applicable_when":"新客数据缺失或口径不可比","dependencies":"平台顾客分析","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-OLD-01","applicable_when":"老客下降且新客相对稳定","not_applicable_when":"老客样本过小或口径不可比","dependencies":"顾客与评价数据","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-SVC-01","applicable_when":"评分下降或商责取消增加","not_applicable_when":"评价样本极小且无其他服务异常证据","dependencies":"商户配合","rule_evidence_sufficient":false},
+  {"candidate_action_id":"ACT-PLATFORM-01","applicable_when":"同店同周期的平台变化方向显著分化","not_applicable_when":"平台周期、覆盖或指标口径不一致","dependencies":"三平台同周期数据","rule_evidence_sufficient":true},
+  {"candidate_action_id":"ACT-TASK-01","applicable_when":"上期任务逾期或缺少验证结果","not_applicable_when":"任务已取消且有原因或已完成验证","dependencies":"原责任角色","rule_evidence_sufficient":true}
+]

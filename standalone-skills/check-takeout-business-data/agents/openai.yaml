@@ -1,0 +1,4 @@
+interface:
+  display_name: "外卖数据质检与计算"
+  short_description: "校验外卖周度经营数据、零值语义、周期一致性与可追溯指标计算"
+  default_prompt: "Use $check-takeout-business-data to validate this weekly takeout dataset and calculate auditable metrics."

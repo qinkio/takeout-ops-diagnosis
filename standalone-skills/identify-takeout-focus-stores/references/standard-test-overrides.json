@@ -1,0 +1,7 @@
+[
+  {"test_case_id":"T02","case_name":"收入下降但收入客单上涨且连续下滑","expected_rule_ids":"TREND-001;PERF-001","expected_priority":"P0","expected_focus":"连续下滑","rationale":"三个有效周期逐期下降，第三期较第一期下降超过20%，同时保留订单侧拆解"},
+  {"test_case_id":"T03","case_name":"订单稳定但收入客单下降且连续下滑","expected_rule_ids":"TREND-001;PERF-001","expected_priority":"P0","expected_focus":"连续下滑","rationale":"三个有效周期逐期下降，第三期较第一期下降超过20%，同时保留收入客单侧拆解"},
+  {"test_case_id":"T06","case_name":"新客下降并带动收入连续下滑","expected_rule_ids":"TREND-001;CUSTOMER-001;PERF-001","expected_priority":"P0","expected_focus":"连续下滑","rationale":"新客下降证据保留，但连续下滑规则决定最高优先级"},
+  {"test_case_id":"T07","case_name":"老客下降并带动收入连续下滑","expected_rule_ids":"TREND-001;CUSTOMER-001;PERF-001","expected_priority":"P0","expected_focus":"连续下滑","rationale":"老客下降证据保留，但连续下滑规则决定最高优先级"},
+  {"test_case_id":"T09","case_name":"三平台方向分化","expected_rule_ids":"PLATFORM-001;PERF-001","expected_priority":"P1","expected_focus":"跨平台","rationale":"三个平台均在范围内，主焦点使用规则引擎统一枚举"}
+]

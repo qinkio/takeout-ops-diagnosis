@@ -1,0 +1,4 @@
+interface:
+  display_name: "外卖重点门店识别"
+  short_description: "执行可追溯外卖诊断规则并输出重点门店、命中证据与人工复核级别"
+  default_prompt: "Use $identify-takeout-focus-stores to execute the configured rules and return traceable focus-store evidence."

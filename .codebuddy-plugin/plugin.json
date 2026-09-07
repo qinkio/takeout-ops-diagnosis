@@ -1,0 +1,51 @@
+{
+  "name": "takeout-business-review-expert",
+  "version": "1.0.3",
+  "description": "Analyzes uploaded multi-brand, multi-store and multi-platform takeout data into traceable reviews and human-approved action tasks.",
+  "author": {
+    "name": "Argine",
+    "email": "qinyuebei@foxmail.com"
+  },
+  "agents": [
+    "./agents/takeout-business-review-expert.md"
+  ],
+  "skills": [
+    "./skills/takeout-business-review"
+  ],
+  "expertType": "agent",
+  "agentName": "takeout-business-review-expert",
+  "displayName": {
+    "en": "Takeout Operations Diagnosis Advisor",
+    "zh": "外卖经营诊断顾问"
+  },
+  "profession": {
+    "en": "Takeout Operations Advisor",
+    "zh": "外卖经营诊断顾问"
+  },
+  "displayDescription": {
+    "en": "Upload multi-brand, multi-store and three-platform takeout data to identify focus stores and produce traceable, human-reviewed action tasks.",
+    "zh": "上传多品牌多门店三平台外卖数据，自动校验、定位问题并给出有证据、可验证的解决建议与待确认任务。"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "09-OperationsHR",
+  "defaultInitPrompt": {
+    "en": "Diagnose my takeout operations data and recommend next actions",
+    "zh": "分析我的外卖经营数据并给出诊断建议"
+  },
+  "plugin": "takeout-business-review-expert",
+  "keywords": [
+    "takeout operations",
+    "store review",
+    "multi-platform analytics"
+  ],
+  "tags": [
+    { "en": "Takeout Operations", "zh": "外卖运营" },
+    { "en": "Store Diagnostics", "zh": "门店诊断" },
+    { "en": "Task Closure", "zh": "任务闭环" }
+  ],
+  "quickPrompts": [
+    { "en": "Diagnose my takeout operations data and recommend next actions", "zh": "分析我的外卖经营数据并给出诊断建议" },
+    { "en": "Check whether this takeout spreadsheet is ready for analysis", "zh": "检查这份外卖数据能否用于复盘" },
+    { "en": "Identify focus stores and generate action candidates", "zh": "识别重点门店并生成待确认动作" }
+  ]
+}

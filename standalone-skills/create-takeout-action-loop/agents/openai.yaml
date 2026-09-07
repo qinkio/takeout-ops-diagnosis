@@ -1,0 +1,4 @@
+interface:
+  display_name: "外卖经营任务闭环"
+  short_description: "将重点门店诊断转成可确认、可追踪、可验证的经营任务"
+  default_prompt: "Use $create-takeout-action-loop to turn takeout rule hits into evidence-backed tasks for human review."
