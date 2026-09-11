@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/takeout-agent-handoff.schema.json",
+  "title": "Takeout multi-agent handoff",
+  "type": "object",
+  "required": ["handoff_id", "run_id", "from_agent", "to_agent", "task_scope", "status", "facts", "evidence_refs", "constraints", "next_instruction"],
+  "properties": {
+    "handoff_id": {"type":"string","minLength":1},
+    "run_id": {"type":"string","minLength":1},
+    "from_agent": {"type":"string","minLength":1},
+    "to_agent": {"type":"string","minLength":1},
+    "task_scope": {
+      "type":"object",
+      "required":["brands","stores","platforms"],
+      "properties": {
+        "brands":{"type":"array","items":{"type":"string"}},
+        "stores":{"type":"array","items":{"type":"string"}},
+        "platforms":{"type":"array","items":{"type":"string"}}
+      }
+    },
+    "status": {"enum":["assigned","accepted","restricted","blocked","returned","completed","failed","retry_assigned","retry_submitted","returned_to_user","rejected"]},
+    "facts": {"type":"array"},
+    "hypotheses": {"type":"array"},
+    "evidence_refs": {"type":"array"},
+    "constraints": {"type":"array"},
+    "return_reasons": {"type":"array"},
+    "next_instruction": {"type":"string"},
+    "attempt": {"type":"integer","minimum":0,"maximum":1}
+  },
+  "additionalProperties": true
+}

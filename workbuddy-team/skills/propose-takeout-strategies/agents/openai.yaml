@@ -1,0 +1,4 @@
+interface:
+  display_name: "经营策略候选生成"
+  short_description: "根据已核验诊断与动作库生成可追溯的外卖经营候选策略方案"
+  default_prompt: "Use $propose-takeout-strategies to turn validated store diagnoses into evidence-bounded strategy proposals."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "行动合规审核"
+  short_description: "独立审核外卖经营策略的证据链、安全边界、审批状态与任务完整性"
+  default_prompt: "Use $audit-takeout-actions to audit takeout strategy proposals before human approval."

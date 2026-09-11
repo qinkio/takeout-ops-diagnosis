@@ -4,10 +4,22 @@
 
 用户上传美团外卖、淘宝闪购（饿了么）或京东外卖的 Excel、CSV、JSON 数据后，系统会先检查数据是否可靠，再找出需要优先关注的门店和问题环节，最后给出带适用条件、证据要求、负责人、观察周期和验证指标的解决建议。
 
-项目提供两种互相独立的使用方式：
+项目提供三种互相独立的使用方式：
 
 - **WorkBuddy“外卖经营诊断顾问”**：适合普通用户。上传文件后用自然语言完成完整诊断、建议与复盘。
+- **WorkBuddy“连锁品牌深度诊断”专家团**：一个总控 Agent 调度数据质检、门店诊断、策略方案和行动审核四个专业 Agent，适合多品牌或较多门店。
 - **三个独立 Skill**：适合在 Codex 或兼容 Skill 的环境中单独调用，也可以按顺序组合。
+
+## 选择哪种模式
+
+| 数据与任务 | 默认模式 | 原因 |
+|---|---|---|
+| 1–5家门店、单品牌、分析范围简单 | 轻量诊断 | 调用少、交付快，避免不必要的 Agent 协作 |
+| 6家及以上门店 | 多 Agent 深度诊断 | 适合分批处理和统一审核 |
+| 多品牌或超过15个“门店 × 平台”单元 | 多 Agent 深度诊断 | 降低上下文混淆，保留门店与平台边界 |
+| 严重数据问题、跨店或跨品牌比较 | 多 Agent 深度诊断 | 需要独立质检、诊断和审核角色 |
+
+用户可以明确指定“快速模式”或“多 Agent 深度诊断”覆盖默认选择。
 
 ## 能得到什么
 
@@ -59,7 +71,32 @@
 
 同一品牌可以有多个门店，每个门店可以包含一个到三个平台。平台缺失时仍可分析已有平台，但不会强行给出跨平台结论。
 
-## 方式二：使用独立 Skills
+## 方式二：使用 WorkBuddy 专家团
+
+### 安装
+
+1. 下载 `releases/takeout-operations-agent-team-v1.0.0.zip`。
+2. 在 WorkBuddy 的“专家·技能·连接器”中选择导入专家。
+3. 上传 ZIP，召唤“连锁品牌深度诊断”。
+4. 上传经营数据；总控会说明选择轻量或深度模式的原因。
+
+专家团按照 WorkBuddy 官方 `expertType: "team"` 结构制作，包含一名主理人与四名成员。普通报告只展示经营结论；需要演示架构时，可以要求“展示本次 Agent 交接与审核记录”。
+
+### 五个 Agent
+
+| Agent | 独立责任 | 关键边界 |
+|---|---|---|
+| 连锁外卖经营总控 | 路由、派单、汇总 | 不改写专业事实或覆盖审核 |
+| 经营数据质检专员 | 全量校验与指标计算 | 不归因、不生成策略 |
+| 门店经营诊断专员 | 分品牌—门店定位问题 | 不输出动作建议 |
+| 经营策略方案专员 | 匹配候选方案 | 不审批、不宣称已执行 |
+| 行动合规审核专员 | 证据、安全和审批门禁 | 可退回或安全否决 |
+
+本地可运行的编排器位于 `multi-agent/`。它用于验证路由、交接、阻断和审核逻辑，不会伪装成五个独立模型调用；真实成员调度由 WorkBuddy 专家团完成。
+
+完整的职责分离、AI与规则分工及面试表述见 `docs/multi-agent-design.md`。
+
+## 方式三：使用独立 Skills
 
 三个 Skill 位于 `standalone-skills/`，不存在对 WorkBuddy 专家定义或头像的依赖。
 
@@ -120,6 +157,17 @@ node skills/takeout-business-review/scripts/run_takeout_review.mjs \
   --output-dir outputs/demo
 ```
 
+多 Agent 路由与协作轨迹演示：
+
+```bash
+node multi-agent/scripts/run_multi_agent_review.mjs \
+  --input examples/synthetic-input.json \
+  --output-dir outputs/multi-agent-demo \
+  --mode auto
+```
+
+输出包括模式选择、四个专业阶段结果、协作轨迹、最终报告和经过审核的待确认任务。
+
 演示数据包含 2 个虚构品牌、3 个虚构门店、3 个平台和 3 个连续周期，共 27 行。所有名称和数字均为合成数据。
 
 ## 验证
@@ -129,6 +177,7 @@ node tests/public-smoke-test.mjs
 node standalone-skills/check-takeout-business-data/scripts/test_validate_and_calculate.mjs
 node standalone-skills/identify-takeout-focus-stores/scripts/test_execute_rules.mjs
 node standalone-skills/create-takeout-action-loop/scripts/test_create_action_loop.mjs
+node tests/multi-agent-test.mjs
 ```
 
 ## 使用边界
@@ -144,7 +193,7 @@ node standalone-skills/create-takeout-action-loop/scripts/test_create_action_loo
 
 ## 作者
 
-Argine · `qinyuebei@foxmail.com`
+Argine
 
 ## License
 

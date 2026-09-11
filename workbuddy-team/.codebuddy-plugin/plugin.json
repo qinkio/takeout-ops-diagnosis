@@ -1,0 +1,49 @@
+{
+  "name": "takeout-operations-agent-team",
+  "version": "1.0.0",
+  "description": "A lead agent coordinates four specialists to validate, diagnose, propose and review multi-brand takeout operations.",
+  "author": { "name": "Argine" },
+  "agents": [
+    "./agents/takeout-operations-orchestrator.md",
+    "./agents/takeout-data-quality-specialist.md",
+    "./agents/takeout-store-diagnosis-specialist.md",
+    "./agents/takeout-strategy-specialist.md",
+    "./agents/takeout-action-review-specialist.md"
+  ],
+  "skills": [
+    "./skills/takeout-business-review",
+    "./skills/check-takeout-business-data",
+    "./skills/identify-takeout-focus-stores",
+    "./skills/propose-takeout-strategies",
+    "./skills/audit-takeout-actions"
+  ],
+  "expertType": "team",
+  "agentName": "takeout-operations-orchestrator",
+  "teamInfo": {
+    "leadAgent": "takeout-operations-orchestrator",
+    "memberAgents": ["takeout-data-quality-specialist", "takeout-store-diagnosis-specialist", "takeout-strategy-specialist", "takeout-action-review-specialist"]
+  },
+  "displayName": { "en": "Chain Takeout Operations Team", "zh": "连锁品牌深度诊断" },
+  "profession": { "en": "Multi-agent Takeout Operations Team", "zh": "连锁外卖经营专家团" },
+  "displayDescription": {
+    "en": "A lead agent coordinates data quality, store diagnosis, strategy and action review specialists for multi-brand and multi-platform operations.",
+    "zh": "由总控调度数据质检、门店诊断、策略方案和行动审核四位专员，为多品牌、多门店、三平台数据提供可追溯的深度诊断。"
+  },
+  "avatar": "avatars/orchestrator.png",
+  "categoryId": "00-ExpertTeam",
+  "defaultInitPrompt": { "en": "Run a deep diagnosis of my chain takeout operations data", "zh": "深度诊断我的连锁外卖经营数据" },
+  "members": [
+    { "id": "takeout-operations-orchestrator", "name": {"en":"Operations Lead","zh":"连锁外卖经营总控"}, "profession": {"en":"Lead Orchestrator","zh":"主理人"}, "avatar": "avatars/orchestrator.png", "role": "lead" },
+    { "id": "takeout-data-quality-specialist", "name": {"en":"Data Quality Specialist","zh":"经营数据质检专员"}, "profession": {"en":"Data Quality Agent","zh":"数据质量专员"}, "avatar": "avatars/data-quality.png", "role": "member" },
+    { "id": "takeout-store-diagnosis-specialist", "name": {"en":"Store Diagnosis Specialist","zh":"门店经营诊断专员"}, "profession": {"en":"Operations Diagnosis Agent","zh":"经营诊断专员"}, "avatar": "avatars/diagnosis.png", "role": "member" },
+    { "id": "takeout-strategy-specialist", "name": {"en":"Strategy Specialist","zh":"经营策略方案专员"}, "profession": {"en":"Strategy Agent","zh":"策略方案专员"}, "avatar": "avatars/strategy.png", "role": "member" },
+    { "id": "takeout-action-review-specialist", "name": {"en":"Action Review Specialist","zh":"行动合规审核专员"}, "profession": {"en":"Action Review Agent","zh":"行动审核专员"}, "avatar": "avatars/action-review.png", "role": "member" }
+  ],
+  "plugin": "takeout-operations-agent-team",
+  "tags": [{"en":"Multi-agent","zh":"多Agent"},{"en":"Chain Operations","zh":"连锁经营"},{"en":"Human Review","zh":"人工审核"}],
+  "quickPrompts": [
+    {"en":"Deep-diagnose my chain stores","zh":"深度诊断我的连锁门店"},
+    {"en":"Explain which mode this dataset should use","zh":"判断这份数据应该使用哪种诊断模式"},
+    {"en":"Show the agent handoff and review trail","zh":"展示本次分析的Agent交接与审核记录"}
+  ]
+}

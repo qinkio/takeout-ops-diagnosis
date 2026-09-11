@@ -16,3 +16,4 @@ jobs:
       - run: node standalone-skills/check-takeout-business-data/scripts/test_validate_and_calculate.mjs
       - run: node standalone-skills/identify-takeout-focus-stores/scripts/test_execute_rules.mjs
       - run: node standalone-skills/create-takeout-action-loop/scripts/test_create_action_loop.mjs
+      - run: node tests/multi-agent-test.mjs

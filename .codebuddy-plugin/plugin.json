@@ -3,8 +3,7 @@
   "version": "1.0.3",
   "description": "Analyzes uploaded multi-brand, multi-store and multi-platform takeout data into traceable reviews and human-approved action tasks.",
   "author": {
-    "name": "Argine",
-    "email": "qinyuebei@foxmail.com"
+    "name": "Argine"
   },
   "agents": [
     "./agents/takeout-business-review-expert.md"
